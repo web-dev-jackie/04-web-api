@@ -1,0 +1,13 @@
+{
+  "name": "quiz-homework",
+  "version": "1.0.0",
+  "decription": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Jacqueline Heatley <heatleyj7@icloud.com> (https://github.com/heatleyj7.git)",
+  "license": "MIT",
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.3"
+  }
+}
