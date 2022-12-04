@@ -1,6 +1,6 @@
-const { SECONDS } = require("countdown");
+var startButton = document.querySelector("#start-button");
+var countdownTimer = document.querySelector("#start-button")
 
-// var startButton = document.querySelector("#generate");
 var selectA = document.querySelector("#a");
 var selectB = document.querySelector("#b");
 var selectC = document.querySelector("#c");
@@ -10,21 +10,7 @@ startBox = document.getElementById("start-box");
 startButton = document.getElementById("start-button");
 quizBox = document.getElementById("quiz-box");
 question = document.getElementById("question");
-
-var userChoice = "";
-var addTime;
-
-        var timerId = countdown(
-          new Date(),
-          function (ts) {
-            document.getElementById("pageTimer").innerHTML =
-              ts.toHTML("strong");
-          },
-          countdown.HOURS | countdown.MINUTES | countdown.SECONDS
-        ); 
-
-// later on this timer may be stopped
-window.clearInterval(timerId);
+// countdownTimer = document.getElementById("countdown-timer")
 
 const questions = [
   {
@@ -34,7 +20,7 @@ const questions = [
     answer3: "answer three",
     answer4: "answer four",
 
-    correct: "A",
+    correct: "selectA",
   },
   {
     question: "Second Question",
@@ -43,7 +29,7 @@ const questions = [
     answer3: "answer three",
     answer4: "answer four",
 
-    correct: "B",
+    correct: "selectB"
   },
   {
     question: "Third Question",
@@ -52,7 +38,7 @@ const questions = [
     answer3: "answer three",
     answer4: "answer four",
 
-    correct: "C",
+    correct: "selectC",
   },
   {
     question: "Fourth Question",
@@ -61,7 +47,7 @@ const questions = [
     answer3: "answer three",
     answer4: "answer four",
 
-    correct: "D",
+    correct: "selectD",
   },
   {
     question: "Fifth Question",
@@ -70,38 +56,29 @@ const questions = [
     answer3: "answer three",
     answer4: "answer four",
 
-    correct: "A",
+    correct: "selectA",
   },
 ];
-
-
-
-
-
-function zero() {
-  question.textContent = questions[0].question;
-}
-function one() {
-  question.textContent = questions[1].question;
-}
-function two() {
-  question.textContent = questions[2].question;
-}
-function three() {
-  question.textContent = questions[3].question;
-}
-function four() {
-  question.textContent = questions[4].question;
-}
-//
-
-function init() {
-  getHigh();
-}
+  
+question.textContent = questions[0].question;
 
 function startQuiz() {
   startBox.style.display = "none";
   quizBox.style.display = "block";
+  // countdownTimer.style.display = "block";
 }
+//   (Math.ceil(Math.random() * 5))
+
+// function countdownTimer() {
+// // Using built-in methods
+// const start = new Date();
+
+// // The event to time goes here:
+// doSomethingForALongTime();
+// const end = new Date();
+// const elapsed = end.getTime() - start.getTime(); // elapsed time in milliseconds
+
+// }
 
 startButton.addEventListener("click", startQuiz);
+startButton.addEventListener("click", countdownTimer);
