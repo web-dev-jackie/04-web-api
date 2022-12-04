@@ -61,17 +61,14 @@ const questions = [
   },
 ];
 
-
     question.textContent = questions[0].question;
-
-
-
 
 function startQuiz() {
   startBox.style.display = "none";
     quizBox.style.display = "block";
-    countdown().style.display = "block";
-    queue().style.display = "block";
+  countdown('01/19/2038 03:14:07 AM').style.display = "block";
+  
+       queue().style.display = "block";
 }
 
 function countdown(dateEnd) {
@@ -116,7 +113,5 @@ function countdown(dateEnd) {
 
   function display(days, hours, minutes, seconds) {}
 }
-
-countdown('01/19/2038 03:14:07 AM');
 
 startButton.addEventListener("click", startQuiz);
