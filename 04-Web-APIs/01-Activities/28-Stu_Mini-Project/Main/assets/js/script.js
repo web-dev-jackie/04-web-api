@@ -52,6 +52,7 @@ function loseGame() {
 }
 
 // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
+
 function startTimer() {
   // Sets timer
   timer = setInterval(function() {
