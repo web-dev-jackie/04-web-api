@@ -259,14 +259,20 @@ startButton.addEventListener("click", startQuiz);
 // Calls init() so that it fires when page opened
 init();
 
+// Bonus: Add reset button
+var resetButton = document.querySelector(".reset-button");
+
 function resetGame() {
   // Resets win and loss counts
-  winCounter = 0;
+  winCounter = 1;
   loseCounter = 0;
   // Renders win and loss counts and sets them into client storage
   setWins()
   setLosses()
 }
+// Attaches event listener to button
+reset.addEventListener("click", resetGame);
+
 
 startButton.addEventListener("click", startQuiz);
 selectA.addEventListener("click", evalFunction);
