@@ -82,10 +82,16 @@ function queue() {
 }
 // increment question list
 
+// The init function is called when the page loads 
+function init() {
+  getWins();
+  getlosses();
+}
 // startQuiz()
 function startQuiz() {
   startBox.style.display = "none";
   quizBox.style.display = "block";
+  timerCount = 10; 
   // Interval timer in activity 10 in week 4 - use that one! 
   // Run endGame() when timer runs out
   // Used to change seconds in display 
@@ -153,6 +159,34 @@ function startTimer() {
   }, 1000);
 }
 
+
+// Attach event listener to document to listen for key event
+document.addEventListener("keydown", function(event) {
+  // If the count is zero, exit function
+  if (timerCount === 0) {
+    return;
+  }
+  // Convert all keys to lower case
+  var key = event.key.toLowerCase();
+  var alphabetNumericCharacters = "abcdefghijklmnopqrstuvwxyz0123456789 ".split("");
+  // Test if key pushed is letter
+  if (alphabetNumericCharacters.includes(key)) {
+    var letterGuessed = event.key;
+    checkLetters(letterGuessed)
+    checkWin();
+  }
+});
+
+// Write code to print all numbers from `num` down to 1
+// You may assume `num` will be a positive number
+var num = 10;
+var countdown = function(num) {
+  for (var i = num; i > 0; i--) {
+    console.log(i);
+  }
+};
+
+
 // These functions are used by init()
 function getWins() {
   // Get stored value from client storage, if it exists
@@ -202,50 +236,28 @@ function endQuiz() {
   console.log("Game Over")
 }
 
-function countdown(dateEnd) {
-  var timer, days, hours, minutes, seconds;
-
-  dateEnd = new Date(dateEnd);
-  dateEnd = dateEnd.getTime();
-
-  if (isNaN(dateEnd)) {
+// Attach event listener to document to listen for key event
+document.addEventListener("keydown", function(event) {
+  // If the count is zero, exit function
+  if (timerCount === 0) {
     return;
   }
-
-  timer = setInterval(calculate, 1000);
-
-  function calculate() {
-    var dateStart = new Date();
-    var dateStart = new Date(
-      dateStart.getUTCFullYear(),
-      dateStart.getUTCMonth(),
-      dateStart.getUTCDate(),
-      dateStart.getUTCHours(),
-      dateStart.getUTCMinutes(),
-      dateStart.getUTCSeconds()
-    );
-    var timeRemaining = parseInt((dateEnd - dateStart.getTime()) / 1000);
-
-    if (timeRemaining >= 0) {
-      days = parseInt(timeRemaining / 86400);
-      timeRemaining = timeRemaining % 86400;
-      hours = parseInt(timeRemaining / 3600);
-      timeRemaining = timeRemaining % 3600;
-      minutes = parseInt(timeRemaining / 60);
-      timeRemaining = timeRemaining % 60;
-      seconds = parseInt(timeRemaining);
-
-      document.getElementById("days").innerHTML = parseInt(days, 10);
-      document.getElementById("hours").innerHTML = ("0" + hours).slice(-2);
-      document.getElementById("minutes").innerHTML = ("0" + minutes).slice(-2);
-      document.getElementById("seconds").innerHTML = ("0" + seconds).slice(-2);
-    } else {
-      return;
-    }
+  // Convert all keys to lower case
+  var key = event.key.toLowerCase();
+  var alphabetNumericCharacters = "abcdefghijklmnopqrstuvwxyz0123456789 ".split("");
+  // Test if key pushed is letter
+  if (alphabetNumericCharacters.includes(key)) {
+    var letterGuessed = event.key;
+    checkLetters(letterGuessed)
+    checkWin();
   }
+});
 
-  function display(days, hours, minutes, seconds) {}
-}
+// Attach event listener to start button to call startGame function on click
+startButton.addEventListener("click", startQuiz);
+
+// Calls init() so that it fires when page opened
+init();
 
 function resetGame() {
   // Resets win and loss counts
