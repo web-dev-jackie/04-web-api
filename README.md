@@ -1,9 +1,6 @@
 
 ![Logo](./assignment-quiz/assets/images/quiz-logo.png)
 
-
-
-
 # Homework 4 notes
 
     1.	Coding quiz doesn’t have to be javascript (can be about anything)
@@ -36,7 +33,7 @@ Document Object Model - "DOM"
 Get and append elements into the DOM (browser)
 Mental clarity and top focus, doesn't hurt to read the problem out loud to yourself in a quiet room. 
 
-![Equal?](./assignment-quiz/assets/images/api.png)
+![API's](./assignment-quiz/assets/images/api.png)
 
 All done via JavaScript.'
 
@@ -56,7 +53,7 @@ What is a data attribute? Allows you to store info on an HTML element.
 Example: 
 
 Data Attribute
-![Equal?](./images/data-attribute.png)
+![Data attribute](./assignment-quiz/assets/images/data-attribute.png)
 
 document.body.children
 
